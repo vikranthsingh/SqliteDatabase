@@ -27,7 +27,7 @@ public class UpdateActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 MyDatabaseHelper db = new MyDatabaseHelper(getApplicationContext());
-                db.updateData(UpdateActivity.this, id, title, author, pages);
+                db.updateData(UpdateActivity.this, id, editTextTitleUpdate.getText().toString(), editTextAuthorUpdate.getText().toString(), editTextPagesUpdate.getText().toString());
             }
         });
     }
