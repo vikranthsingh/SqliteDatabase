@@ -12,7 +12,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:id="@+id/updateLayout">
 
         <TextView
             android:id="@+id/txtId"
@@ -33,7 +34,7 @@
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
             android:text="Title"
-            android:textSize="22sp"
+            android:textSize="25sp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/txtId"
             app:layout_constraintTop_toTopOf="parent" />
@@ -43,7 +44,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
-            android:layout_marginTop="5dp"
             android:text="Author"
             android:textSize="22sp"
             android:textStyle="bold"

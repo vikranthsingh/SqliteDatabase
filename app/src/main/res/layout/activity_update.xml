@@ -5,52 +5,51 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="20dp"
-    tools:context=".AddActivity">
+    tools:context=".UpdateActivity">
 
     <EditText
-        android:id="@+id/editTextTitle"
+        android:id="@+id/editTextTitleUpdate"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="200dp"
-        android:ems="10"
-        android:hint="Enter Title"
+        android:hint="Update Title"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextAuthor"
+        android:id="@+id/editTextAuthorUpdate"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:ems="10"
-        android:hint="Enter Author"
+        android:hint="Update Author"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTitle"
-        app:layout_constraintStart_toStartOf="@+id/editTextTitle"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTitle" />
+        app:layout_constraintEnd_toEndOf="@+id/editTextTitleUpdate"
+        app:layout_constraintStart_toStartOf="@+id/editTextTitleUpdate"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTitleUpdate" />
 
     <EditText
-        android:id="@+id/editTextPages"
+        android:id="@+id/editTextPagesUpdate"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:ems="10"
-        android:hint="Enter Pages"
+        android:hint="Update Pages"
         android:inputType="number"
-        app:layout_constraintEnd_toEndOf="@+id/editTextAuthor"
-        app:layout_constraintStart_toStartOf="@+id/editTextAuthor"
-        app:layout_constraintTop_toBottomOf="@+id/editTextAuthor" />
+        app:layout_constraintEnd_toEndOf="@+id/editTextAuthorUpdate"
+        app:layout_constraintStart_toStartOf="@+id/editTextAuthorUpdate"
+        app:layout_constraintTop_toBottomOf="@+id/editTextAuthorUpdate" />
 
     <Button
-        android:id="@+id/buttonAdd"
+        android:id="@+id/buttonUpdate"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginTop="20dp"
-        android:text="Add"
+        android:text="Update"
         android:textSize="22sp"
-        app:layout_constraintEnd_toEndOf="@+id/editTextPages"
-        app:layout_constraintStart_toStartOf="@+id/editTextPages"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPages" />
+        app:layout_constraintEnd_toEndOf="@+id/editTextPagesUpdate"
+        app:layout_constraintStart_toStartOf="@+id/editTextPagesUpdate"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPagesUpdate" />
 </androidx.constraintlayout.widget.ConstraintLayout>

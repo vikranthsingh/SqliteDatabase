@@ -10,10 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SQliteDatabase">
         <activity
+            android:name=".UpdateActivity"
+            android:exported="false"
+            android:label="Update Book"
+            android:parentActivityName=".MainActivity"/>
+        <activity
             android:name=".AddActivity"
             android:exported="false"
-            android:parentActivityName=".MainActivity"
-            android:label="Add Book"/>
+            android:label="Add Book"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
