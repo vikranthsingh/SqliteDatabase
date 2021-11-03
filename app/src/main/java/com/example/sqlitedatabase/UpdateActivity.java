@@ -26,8 +26,11 @@ public class UpdateActivity extends AppCompatActivity {
         buttonUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                title = editTextTitleUpdate.getText().toString();
+                author = editTextAuthorUpdate.getText().toString();
+                pages = editTextPagesUpdate.getText().toString();
                 MyDatabaseHelper db = new MyDatabaseHelper(getApplicationContext());
-                db.updateData(UpdateActivity.this, id, editTextTitleUpdate.getText().toString(), editTextAuthorUpdate.getText().toString(), editTextPagesUpdate.getText().toString());
+                db.updateData(UpdateActivity.this, id, title, author, pages);
             }
         });
     }
