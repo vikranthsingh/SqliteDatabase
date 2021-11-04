@@ -57,7 +57,7 @@ public class UpdateActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 MyDatabaseHelper db = new MyDatabaseHelper(UpdateActivity.this);
-                db.deleteRow(id);
+                db.deleteRow(UpdateActivity.this, id);
                 finish();
             }
         });

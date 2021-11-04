@@ -2,6 +2,7 @@ package com.example.sqlitedatabase;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -28,6 +29,8 @@ public class AddActivity extends AppCompatActivity {
                 String author = editTextAuthor.getText().toString().trim();
                 int pages = Integer.parseInt(editTextPages.getText().toString().trim());
                 db.addBook(AddActivity.this, title, author, pages);
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
             }
         });
     }
