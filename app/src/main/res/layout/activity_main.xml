@@ -27,4 +27,27 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/ivNoData"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:alpha="0.5"
+        android:layout_marginTop="300dp"
+        android:src="@drawable/ic_baseline_hourglass_empty_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtNoData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:alpha="0.5"
+        android:text="No Data"
+        android:textSize="80sp"
+        app:layout_constraintEnd_toEndOf="@+id/ivNoData"
+        app:layout_constraintStart_toStartOf="@+id/ivNoData"
+        app:layout_constraintTop_toBottomOf="@+id/ivNoData" />
 </androidx.constraintlayout.widget.ConstraintLayout>

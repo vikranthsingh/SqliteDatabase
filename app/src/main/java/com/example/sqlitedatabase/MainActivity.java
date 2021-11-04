@@ -15,6 +15,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -26,12 +28,17 @@ public class MainActivity extends AppCompatActivity {
     FloatingActionButton floatingActionButton;
     MyDatabaseHelper db;
     ArrayList<String> id, title, author, pages;
+    ImageView ivNoData;
+    TextView txtNoData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         recyclerView = findViewById(R.id.recyclerView);
+        ivNoData = findViewById(R.id.ivNoData);
+        txtNoData = findViewById(R.id.txtNoData);
+
         floatingActionButton = findViewById(R.id.floatingActionButton);
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,6 +71,8 @@ public class MainActivity extends AppCompatActivity {
         Cursor cursor = db.getData();
         if (cursor.getCount() == 0) {
             Toast.makeText(getApplicationContext(), "No Data", Toast.LENGTH_SHORT).show();
+            ivNoData.setVisibility(View.VISIBLE);
+            txtNoData.setVisibility(View.VISIBLE);
 
         } else {
             while (cursor.moveToNext()) {    //read data from cursor
@@ -71,6 +80,8 @@ public class MainActivity extends AppCompatActivity {
                 title.add(cursor.getString(1));
                 author.add(cursor.getString(2));
                 pages.add(cursor.getString(3));
+                ivNoData.setVisibility(View.GONE);
+                txtNoData.setVisibility(View.GONE);
             }
         }
     }
@@ -85,32 +96,32 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.btnDelete) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle("Delete");
-            builder.setMessage("Are you sure Do you want to Delete " + title + "?");
-            builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    Cursor cursor = db.getData();
-                    if (cursor.getCount() == 0) {
-                        Toast.makeText(getApplicationContext(), "No Data", Toast.LENGTH_SHORT).show();
-                    } else {
-                        MyDatabaseHelper db = new MyDatabaseHelper(getApplicationContext());
-                        db.deleteAllData();
-                        Toast.makeText(getApplicationContext(), "Delete", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                        startActivity(intent);
-                    }
-                }
-            });
-            builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-
-                }
-            });
-            builder.create().show();
+            showToastAndDeleteData();
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    void showToastAndDeleteData() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Delete");
+        builder.setMessage("Do you want to Delete All Data " + title + "?");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                MyDatabaseHelper db = new MyDatabaseHelper(getApplicationContext());
+                db.deleteAllData();
+                Toast.makeText(getApplicationContext(), "Delete All", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+        builder.create().show();
     }
 }
